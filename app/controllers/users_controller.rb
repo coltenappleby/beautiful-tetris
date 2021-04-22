@@ -7,20 +7,10 @@ class UsersController < ApplicationController
         # render json: users.to_json(:include => {:id, :username}, :except => [:created_at, :updated_at])
     end
 
+    def create 
+        user = User.create(username: params[:username])
+        render json: user
+    end
 
 end
 
-# class UserSerializer
-
-#     def initialize(user_object)
-#         @user = user_object
-#     end
-
-#     def to_serialized_json
-#         @users.to_json(:include => {
-#         :username,
-#         :id },
-#         :except => [:updated_at, :created_at])
-#     end
-
-# end
