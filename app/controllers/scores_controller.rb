@@ -11,5 +11,11 @@ class ScoresController < ApplicationController
         render json: score
     end
 
+    def destroy
+        score = Score.find_by(id: params[:id])
+        score.delete()
+        render json: {deleted: "yes"}
+    end
+
 
 end
