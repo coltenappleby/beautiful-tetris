@@ -12,5 +12,17 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def show
+        user = User.find_by(id: params[:id])
+        render json: user.scores
+    end
+
+    def update
+        user = User.find_by(id: params[:id])
+        user.update(username: params[:username])
+        render json: user
+    end
+
+
 end
 
